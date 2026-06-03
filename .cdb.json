@@ -1,0 +1,20 @@
+{
+	"$schema": "https://content.luanti.org/api/cdb_schema/",
+	"type": "MOD",
+	"title": "Mod Logger",
+	"name": "mod_logger",
+	"short_description": "Adds standardized mod logging functions.",
+	"dev_state": "ACTIVELY_DEVELOPED",
+	"ai_disclosure": "NONE",
+	"tags": ["developer_tools"],
+	"content_warnings": null,
+	"license": "MIT",
+	"media_license": "MIT",
+	"repo": "https://codeberg.org/AntumLuanti/mod-mod_logger",
+	"issue_tracker": "https://codeberg.org/AntumLuanti/mod-mod_logger/issues",
+	"website": null,
+	"forums": null,
+	"video_url": null,
+	"donate_url": null,
+	"translation_url": null
+}
