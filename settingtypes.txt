@@ -1,0 +1,3 @@
+
+# Mods debugging state.
+debug_mods (Debug mods) bool false
