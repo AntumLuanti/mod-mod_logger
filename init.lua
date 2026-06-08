@@ -4,6 +4,7 @@ local mod_logger = {
 }
 
 local LogLevel = {
+	SILENT = 0,
 	ERROR = 1,
 	WARN = 2,
 	WARNING = 2,
@@ -46,6 +47,11 @@ local logging_level = check_level(core.settings:get("mod_log_level"))
 --  @param msg
 --    Logging message text.
 local log = function(mod_name, mod_table, lvl, msg)
+	if logging_level < 1 then
+		-- logging disabled
+		return
+	end
+
 	if msg == nil then
 		msg = lvl
 		lvl = nil
