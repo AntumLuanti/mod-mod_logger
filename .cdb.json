@@ -3,7 +3,7 @@
 	"type": "MOD",
 	"title": "Mod Logger",
 	"name": "mod_logger",
-	"short_description": "Adds standardized mod logging functions.",
+	"short_description": "Core logger wrapper that adds extra functions & standardized logging output messages.",
 	"dev_state": "ACTIVELY_DEVELOPED",
 	"ai_disclosure": "NONE",
 	"tags": ["developer_tools"],

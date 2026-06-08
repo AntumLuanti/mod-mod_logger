@@ -2,7 +2,8 @@
 
 ## Description
 
-Mod for [Luanti] that adds standardized mod logging functions.
+Mod for [Luanti] that wraps around the core logger. It adds extra functions &amp; standardized
+logging output messages.
 
 ## Usage
 
