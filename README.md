@@ -54,12 +54,12 @@ Using as soft dependency:
 ```lua
 my_mod = {
     -- only need to add functions that will be used
-    log = function(lvl, msg) end,
-    info = function(msg) end,
-    action = function(msg) end,
-    warn = function(msg) end,
-    error = function(msg) end,
-    debug = function(msg) end
+    log = function() end,
+    info = function() end,
+    action = function() end,
+    warn = function() end,
+    error = function() end,
+    debug = function() end
 }
 if core.global_exists("register_mod_logger") then
     register_mod_logger(my_mod)
