@@ -37,13 +37,6 @@ Parameters:
   alias of "warn".
 - msg: Logging message text.
 
-## Settings
-
-- [`mod_log_level`](settingtypes.txt) (enum): Sets logging verbosity.
-
-___Note:__ Messages also abide by level of core Luanti logger. "info" &amp; "debug" messages are
-output to the default core logger level._
-
 ### Examples
 
 Using as hard dependency:
@@ -88,6 +81,13 @@ Creating a local logger:
 local my_logger = register_mod_logger()
 my_logger.info("Hello my_mod!")
 ```
+
+## Settings
+
+- [`mod_log_level`](settingtypes.txt) (enum): Sets logging verbosity.
+
+___Note:__ Messages also abide by level of core Luanti logger. "info" &amp; "debug" messages are
+output to the default core logger level._
 
 ## Links
 
