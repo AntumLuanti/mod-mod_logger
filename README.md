@@ -87,6 +87,7 @@ my_logger.info("Hello my_mod!")
 
 ## Links
 
+- [ContentDB](https://content.luanti.org/packages/AntumDeluge/mod_logger/)
 - [Forum](https://forum.luanti.org/viewtopic.php?t=32551)
 - Git Repo Mirros:
     - [Codeberg](https://codeberg.org/AntumLuanti/mod-mod_logger)
