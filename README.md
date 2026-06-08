@@ -83,6 +83,7 @@ my_logger.info("Hello my_mod!")
 
 ## Links
 
+- [Forum](https://forum.luanti.org/viewtopic.php?t=32551)
 - Git Repo Mirros:
     - [Codeberg](https://codeberg.org/AntumLuanti/mod-mod_logger)
     - [GitHub](https://github.com/AntumMT/mod-mod_logger)
