@@ -6,7 +6,7 @@
 	"short_description": "Core logger wrapper that adds extra functions & standardized logging output messages.",
 	"dev_state": "ACTIVELY_DEVELOPED",
 	"ai_disclosure": "NONE",
-	"tags": ["developer_tools"],
+	"tags": ["developer_tools", "library"],
 	"content_warnings": null,
 	"license": "MIT",
 	"media_license": "MIT",
