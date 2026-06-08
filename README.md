@@ -57,10 +57,15 @@ if core.get_modpath("mod_logger") then
 end
 ```
 
-Calling logging function:
+Calling logging functions:
 
 ```lua
+-- outputs "[<mod_name>] Hello my_mod!" to Luanti logging console
+-- same as `my_mod.log("Hello my_mod!")` or `my_mod.log(nil, "Hello my_mod!)`
+my_mod.info("Hello my_mod!")
+
 -- outputs "DEBUG[<mod_name>] Hello my_mod!" to Luanti logging console
+-- same as `my_mod.log("debug", "Hello my_mod!")`
 my_mod.debug("Hello my_mod!")
 ```
 
