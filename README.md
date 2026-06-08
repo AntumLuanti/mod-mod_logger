@@ -14,8 +14,8 @@ register_mod_logger()
 register_mod_logger(name)
 register_mod_logger(logger)
 register_mod_logger(name, logger)
-- name: Logger name that will prefix messages. If omitted, mod name will be used.
-- logger: Table to which logging functions will be added. If omitted, a new table will be created
+- name: (optional) Logger name that will prefix messages. If omitted, mod name will be used.
+- logger: (optional) Table to which logging functions will be added. If omitted, a new table will be created
     & returned.
 - return value: `logger` or new table with logging functions.
 ```
