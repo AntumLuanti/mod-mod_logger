@@ -28,8 +28,8 @@ Parameters:
   the standard message logging level will be used (same as `log(msg)`).
 - msg: Logging message text.
 
-The `debug` function will only output text when the setting `debug_mods` is set to `true`. All other
-functions abide by Luanti logging levels.
+The `debug` function will only output text when the setting `enable_debug_mods` is set to `true`.
+All other functions abide by Luanti logging levels.
 
 Example Lua code:
 

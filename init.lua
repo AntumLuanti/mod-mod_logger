@@ -1,6 +1,6 @@
 
 local mod_logger = {}
-local debug_mods = core.settings:get_bool("debug_mods", false)
+local debug_mods = core.settings:get_bool("enable_debug_mods", false)
 
 
 --- Core logging function.
