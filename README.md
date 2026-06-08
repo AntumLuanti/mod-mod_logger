@@ -82,7 +82,5 @@ my_mod.debug("Hello my_mod!")
 
 ## TODO
 
-- use log level enum & only show messages if logging level setting is equal or above
-
 
 [Luanti]: https://www.luanti.org/
