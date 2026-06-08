@@ -53,7 +53,7 @@ my_mod = {
     error = function(msg) end,
     debug = function(msg) end
 }
-if core.get_modpath("mod_logger") then
+if core.global_exists("register_mod_logger") then
     register_mod_logger(my_mod)
 end
 ```
