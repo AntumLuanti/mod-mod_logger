@@ -1,6 +1,12 @@
 
 local mod_logger = {
-	modname = core.get_current_modname()
+	modname = core.get_current_modname(),
+	log = function() end,
+	error = function() end,
+	warn = function() end,
+	action = function() end,
+	info = function() end,
+	debug = function() end
 }
 
 local LogLevel = {
@@ -140,10 +146,7 @@ register_mod_logger = function(mod_table)
 		log(mod_name, mod_table, "debug", msg)
 	end
 
-	if mod_logger.debug then
-		mod_logger.debug("registered logger for mod '"..mod_name.."'")
-	end
-
+	mod_logger.debug("registered logger '"..mod_name.."'")
 	return mod_table
 end
 
