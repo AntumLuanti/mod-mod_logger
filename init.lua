@@ -42,7 +42,7 @@ local logging_level = check_level(core.settings:get("mod_log_level"))
 --    Name of logging mod.
 --  @param lvl
 --    Logging level. If its value is `nil` the standard message logging level ("info") is used (same
---    as `log(msg)`). Supported log levels:
+--    as `log_mod(msg)`). Supported log levels:
 --    - "error"
 --    - "warn" | "warning"
 --    - "action"
@@ -50,7 +50,7 @@ local logging_level = check_level(core.settings:get("mod_log_level"))
 --    - "debug"
 --  @param msg
 --    Logging message text.
-local log = function(mod_name, lvl, msg)
+local log_mod = function(mod_name, lvl, msg)
 	if logging_level < 1 then
 		-- logging disabled
 		return
@@ -134,32 +134,32 @@ register_mod_logger = function(name, logger)
 
 	-- main logging function
 	logger.log = function(lvl, msg)
-		log(name, lvl, msg)
+		log_mod(name, lvl, msg)
 	end
 
 	-- wrapper for logging info level messages
 	logger.info = function(msg)
-		log(name, nil, msg)
+		log_mod(name, nil, msg)
 	end
 
 	-- wrapper for logging action level messages
 	logger.action = function(msg)
-		log(name, "action", msg)
+		log_mod(name, "action", msg)
 	end
 
 	-- wrapper for logging warning level messages
 	logger.warn = function(msg)
-		log(name, "warn", msg)
+		log_mod(name, "warn", msg)
 	end
 
 	-- wrapper for logging error level messages
 	logger.error = function(msg)
-		log(name, "error", msg)
+		log_mod(name, "error", msg)
 	end
 
 	-- wrapper for logging debug level message
 	logger.debug = function(msg)
-		log(name, "debug", msg)
+		log_mod(name, "debug", msg)
 	end
 
 	mod_logger.debug("registered logger '"..name.."'")
