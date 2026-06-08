@@ -46,6 +46,7 @@ Using as soft dependency:
 
 ```lua
 my_mod = {
+    -- only need to add functions that will be used
     log = function(lvl, msg) end,
     info = function(msg) end,
     action = function(msg) end,
