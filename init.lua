@@ -1,9 +1,35 @@
 
-local mod_logger = {}
-local debug_mods = core.settings:get_bool("enable_debug_mods", false)
+local mod_logger = {
+	modname = core.get_current_modname()
+}
+
+local LogLevel = {
+	ERROR = 1,
+	WARN = 2,
+	WARNING = 2,
+	ACTION = 3,
+	INFO = 4,
+	DEBUG = 5
+}
 
 
---- Core logging function.
+--- Checks logging level.
+--
+--  @param lvl
+--    Logging level string.
+--  @return
+--    Logging level integer or `nil` if invalid level.
+local check_level = function(lvl)
+	lvl = lvl or "INFO"
+	return LogLevel[lvl:upper()]
+end
+
+
+--- Configured logging verbosity level.
+local logging_level = check_level(core.settings:get("mod_log_level"))
+
+
+--- Base logging function.
 --
 --  @param mod_name
 --    Name of logging mod.
@@ -12,10 +38,10 @@ local debug_mods = core.settings:get_bool("enable_debug_mods", false)
 --  @param lvl
 --    Logging level. If its value is `nil` the standard message logging level ("info") is used (same
 --    as `log(msg)`). Supported log levels:
---    - "info"
---    - "action"
---    - "warn" | "warning"
 --    - "error"
+--    - "warn" | "warning"
+--    - "action"
+--    - "info"
 --    - "debug"
 --  @param msg
 --    Logging message text.
@@ -24,21 +50,27 @@ local log = function(mod_name, mod_table, lvl, msg)
 		msg = lvl
 		lvl = nil
 	end
+
+	local message_level = check_level(lvl)
+	if message_level == nil then
+		mod_logger.warn("Unknown log level: \""..tostring(lvl).."\"")
+		return
+	elseif logging_level < message_level then
+		-- don't show message of higher verbosity
+		return
+	end
+
 	lvl = lvl and lvl:lower()
 	if lvl == "info" then
 		-- "info" is default logging level, same as `nil` for core.log
 		lvl = nil
+	elseif lvl == "warn" then
+		-- core logger only recognizes "warning"
+		lvl = "warning"
 	end
 
 	local prefix = "["..mod_name.."]"
 	if lvl ~= nil then
-		if lvl == "debug" and not debug_mods then
-			return
-		elseif lvl == "warn" then
-			-- core logger only recognizes "warning"
-			lvl = "warning"
-		end
-
 		-- exclude prefixes already added by Luanti engine
 		if lvl ~= "action" and lvl ~= "warning" and lvl ~= "error" then
 			prefix = lvl:upper()..prefix
@@ -104,14 +136,17 @@ register_mod_logger = function(mod_table)
 end
 
 
+-- ensure using valid logging level
+if logging_level == nil then
+	core.log("warning", "["..mod_logger.modname.."] Invalid value for \"mod_log_level\" setting, defaulting to \"INFO\" ...")
+	logging_level = LogLevel.INFO
+end
+for k, v in pairs(LogLevel) do
+	if v == logging_level then
+		core.log("action", "["..mod_logger.modname.."] Mod logging level: "..k)
+		break
+	end
+end
+
 -- register logger for this mod
 register_mod_logger(mod_logger)
-
--- debug
-if debug_mods then
-	mod_logger.info("info log message")
-	mod_logger.action("action log message")
-	mod_logger.warn("warning log message")
-	mod_logger.error("error log message")
-	mod_logger.debug("debug log message")
-end

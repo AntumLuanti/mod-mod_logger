@@ -26,12 +26,13 @@ Functions:
 - debug(msg)
 
 Parameters:
-- lvl: (optional) Logging level. Can be one of "warn", "info", "action", "error", or "debug". If its
-  value is `nil` the standard message logging level will be used (same as `log(msg)`).
+- lvl: (optional) Logging level. Can be one of "error", "warn", "action", "info", or "debug". If its
+  value is `nil` the standard message logging level will be used (same as `log(msg)`). "warning" is
+  alias of "warn".
 - msg: Logging message text.
 
-The `debug` function will only output text when the setting `enable_debug_mods` is set to `true`.
-All other functions abide by Luanti logging levels.
+Logging verbosity can be set with the `mod_log_level` setting. Logging levels, other than `debug`,
+also abide by level of core Luanti logger.
 
 ### Examples
 
