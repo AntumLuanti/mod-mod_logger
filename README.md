@@ -33,14 +33,36 @@ Parameters:
 The `debug` function will only output text when the setting `enable_debug_mods` is set to `true`.
 All other functions abide by Luanti logging levels.
 
-Example Lua code:
+### Examples
+
+Using as hard dependency:
 
 ```lua
 my_mod = {}
 register_mod_logger(my_mod)
+```
 
--- outputs "[<mod_name>] Hello my_mod!" to Luanti logging console
-my_mod.log("Hello my_mod!")
+Using as soft dependency:
+
+```lua
+my_mod = {
+    log = function(lvl, msg) end,
+    info = function(msg) end,
+    action = function(msg) end,
+    warn = function(msg) end,
+    error = function(msg) end,
+    debug = function(msg) end
+}
+if core.get_modpath("mod_logger") then
+    register_mod_logger(my_mod)
+end
+```
+
+Calling logging function:
+
+```lua
+-- outputs "DEBUG[<mod_name>] Hello my_mod!" to Luanti logging console
+my_mod.debug("Hello my_mod!")
 ```
 
 ## Links
