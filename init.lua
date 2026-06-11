@@ -186,11 +186,11 @@ register_mod_logger(mod_logger)
 
 
 -- DEBUG:
-if logging_level == LogLevel.DEBUG then
-	mod_logger.info("testing mod logger functions ...")
-	for k, v in pairs(mod_logger) do
-		if type(v) == "function" then
-			v(k.." message")
-		end
-	end
-end
+--~ if logging_level == LogLevel.DEBUG then
+	--~ mod_logger.info("testing mod logger functions ...")
+	--~ for k, v in pairs(mod_logger) do
+		--~ if type(v) == "function" then
+			--~ v(k.." message")
+		--~ end
+	--~ end
+--~ end
